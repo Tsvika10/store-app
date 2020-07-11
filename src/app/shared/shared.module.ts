@@ -20,6 +20,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -41,7 +43,9 @@ import {MatListModule} from '@angular/material/list';
     MatDatepickerModule,
     MatNativeDateModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatSidenavModule,
+    MatToolbarModule
   ],
   exports:[
     ItemsListComponent,
@@ -61,7 +65,9 @@ import {MatListModule} from '@angular/material/list';
     MatDatepickerModule,
     MatNativeDateModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatSidenavModule,
+    MatToolbarModule
   ]
 })
 export class SharedModule { }

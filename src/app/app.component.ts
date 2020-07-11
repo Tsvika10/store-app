@@ -11,6 +11,7 @@ import { OnlineStoresService } from './state/online-stores/online-stores.service
 })
 export class AppComponent implements OnInit {
   title = 'store-app';
+  isNavOpen:boolean = false;
 
   constructor(private productsService:ProductsService, private onlineStoresService:OnlineStoresService, private uiService: UiService){
 

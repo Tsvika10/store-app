@@ -1,0 +1,26 @@
+.nav-container{
+    height: 100vh;
+}
+
+.link{
+    &-container{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &-btn{
+        display: block;
+        width: 10rem;
+        max-width: 100vh;
+        text-align: center;
+        height: 3rem;
+        background-color: white;
+        border: none;
+        font-size: 1rem;
+
+        &.router-link-active{
+            background-color: grey;
+        }
+    }
+}
