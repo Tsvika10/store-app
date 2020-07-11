@@ -5,8 +5,9 @@ import { ReceivedItemsPageComponent } from './pages/received-items-page/received
 
 
 const routes: Routes = [
-  { path:'payed-items', component:PayedItemsPageComponent },
-  { path:'received-items', component:ReceivedItemsPageComponent }
+  { path:'', redirectTo:'list', pathMatch:'full'},
+  { path:'list', component:PayedItemsPageComponent },
+  { path:'received', component:ReceivedItemsPageComponent }
 ];
 
 @NgModule({
