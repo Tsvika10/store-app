@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsQuery } from 'src/app/state/products/products.query';
 import { tap } from 'rxjs/operators';
+import { ProductsService } from 'src/app/state/products/products.service';
 
 @Component({
   selector: 'app-payed-items-page',
@@ -9,13 +10,17 @@ import { tap } from 'rxjs/operators';
 })
 export class PayedItemsPageComponent implements OnInit {
 
-  constructor(private productsQuery:ProductsQuery) { }
+  constructor(private productsQuery:ProductsQuery, private productsService:ProductsService) { }
 
   ngOnInit() {
   }
 
   getItems(){
     return this.productsQuery.selectAll({filterBy:({received}) => !received});
+  }
+
+  itemConfirmReceived(itemId){
+    this.productsService.update(itemId, {received: true})
   }
 
 }
