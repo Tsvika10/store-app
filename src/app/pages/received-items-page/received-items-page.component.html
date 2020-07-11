@@ -1,1 +1,4 @@
-<p>received-items-page works!</p>
+<div class="container">
+    <h1>Received Items</h1>
+    <app-items-list [notReceived]="false" [items]="getItems() | async"></app-items-list>
+</div>

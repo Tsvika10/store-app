@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsQuery } from 'src/app/state/products/products.query';
 
 @Component({
   selector: 'app-received-items-page',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReceivedItemsPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productsQuery: ProductsQuery) { }
 
   ngOnInit() {
+  }
+
+  getItems(){
+    return this.productsQuery.selectAll({filterBy:({received}) => received});
   }
 
 }

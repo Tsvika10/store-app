@@ -26,7 +26,7 @@
                     <mat-divider></mat-divider>
                 </mat-list>
             </div>
-            <button mat-raised-button color="primary" (click)="confirmReceived(item.id)">Item Received</button>
+            <button *ngIf="notReceived" mat-raised-button color="primary" (click)="confirmReceived(item.id)">Item Received</button>
         </mat-card>
     </div>
     <app-add-button *ngIf="notReceived" (clickEvent)="onAdd()"></app-add-button>
