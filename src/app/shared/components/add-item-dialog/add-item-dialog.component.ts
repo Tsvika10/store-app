@@ -1,9 +1,11 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Product } from 'src/app/state/products/product.model';
 import { OnlineStoresQuery } from 'src/app/state/online-stores/online-stores.query';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductsService } from 'src/app/state/products/products.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 
 @Component({
@@ -11,8 +13,10 @@ import { ProductsService } from 'src/app/state/products/products.service';
   templateUrl: './add-item-dialog.component.html',
   styleUrls: ['./add-item-dialog.component.css']
 })
-export class AddItemDialogComponent implements OnInit {
+export class AddItemDialogComponent implements OnInit, OnDestroy {
   form: FormGroup;
+
+  private unsubscribe$ = new Subject<void>();
 
   constructor(
     public dialogRef: MatDialogRef<AddItemDialogComponent>,
@@ -43,11 +47,17 @@ export class AddItemDialogComponent implements OnInit {
       received: [false, Validators.required],
       deliveryDate: [null, Validators.required]
     });
-    this.form.valueChanges.subscribe(v => this.data = v as Product)
+    this.form.valueChanges.pipe(takeUntil(this.unsubscribe$)).subscribe(v => this.data = v as Product)
   }
 
   minDate(){
     return new Date()
+  }
+
+  
+  ngOnDestroy(){
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
 }
