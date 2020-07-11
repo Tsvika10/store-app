@@ -1,5 +1,9 @@
-.nav-container{
-    height: 100vh;
+// Import theming functions
+@import '../styles.scss';
+$primary: map-get($store-app-theme, primary);
+
+.content-container{
+    min-height: 100vh;
 }
 
 .link{
@@ -10,17 +14,27 @@
     }
 
     &-btn{
-        display: block;
+        display: flex;
         width: 10rem;
         max-width: 100vh;
         text-align: center;
-        height: 3rem;
         background-color: white;
+        height: 3rem;
         border: none;
         font-size: 1rem;
-
+        border-left: 5px solid transparent;
+        align-items: center;
+        justify-content: center;
+        transition: border-left 200ms ease;
+        
+        &:link, &:visited{
+            color: mat-color($primary);
+            text-decoration: none;
+        }
+        
         &.router-link-active{
-            background-color: grey;
+            border-left: 5px solid;
+            border-color: mat-color($store-app-accent);
         }
     }
 }
