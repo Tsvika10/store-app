@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OnlineStoresQuery } from 'src/app/state/online-stores/online-stores.query';
+import { OnlineStoresQuery } from 'src/app/state/store-entities/online-stores/online-stores.query';
 
 @Component({
   selector: 'app-stores-list',

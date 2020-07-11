@@ -1,10 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { OnlineStoresQuery } from 'src/app/state/online-stores/online-stores.query';
+import { OnlineStoresQuery } from 'src/app/state/store-entities/online-stores/online-stores.query';
 import { map, takeUntil } from 'rxjs/operators';
 import { AddItemDialogComponent } from '../add-item-dialog/add-item-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { UiQuery } from 'src/app/state/ui.query';
-import { Product } from 'src/app/state/products/product.model';
+import { Product } from 'src/app/state/store-entities/products/product.model';
 import { Subject } from 'rxjs';
 
 @Component({

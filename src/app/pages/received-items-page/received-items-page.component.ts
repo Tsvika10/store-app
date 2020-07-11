@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsQuery } from 'src/app/state/products/products.query';
+import { ProductsQuery } from 'src/app/state/store-entities/products/products.query';
 
 @Component({
   selector: 'app-received-items-page',

@@ -1,5 +1,5 @@
-import { Product } from '../state/products/product.model';
-import { OnlineStore } from '../state/online-stores/online-store.model';
+import { Product } from '../state/store-entities/products/product.model';
+import { OnlineStore } from '../state/store-entities/online-stores/online-store.model';
 
 export function setMock(){    
     sessionStorage.setItem('mockProcucts', JSON.stringify(

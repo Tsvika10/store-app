@@ -1,9 +1,9 @@
 import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Product } from 'src/app/state/products/product.model';
-import { OnlineStoresQuery } from 'src/app/state/online-stores/online-stores.query';
+import { Product } from 'src/app/state/store-entities/products/product.model';
+import { OnlineStoresQuery } from 'src/app/state/store-entities/online-stores/online-stores.query';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ProductsService } from 'src/app/state/products/products.service';
+import { ProductsService } from 'src/app/state/store-entities/products/products.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 

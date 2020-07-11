@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { setMock } from './utils/mockHelper';
-import { ProductsService } from './state/products/products.service';
+import { ProductsService } from './state/store-entities/products/products.service';
 import { UiService } from './state/ui.service';
-import { OnlineStoresService } from './state/online-stores/online-stores.service';
+import { OnlineStoresService } from './state/store-entities/online-stores/online-stores.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 

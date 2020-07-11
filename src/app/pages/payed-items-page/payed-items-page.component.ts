@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsQuery } from 'src/app/state/products/products.query';
+import { ProductsQuery } from 'src/app/state/store-entities/products/products.query';
 import { tap } from 'rxjs/operators';
-import { ProductsService } from 'src/app/state/products/products.service';
+import { ProductsService } from 'src/app/state/store-entities/products/products.service';
 
 @Component({
   selector: 'app-payed-items-page',
