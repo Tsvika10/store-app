@@ -4,8 +4,6 @@ import { Product } from 'src/app/state/products/product.model';
 import { OnlineStoresQuery } from 'src/app/state/online-stores/online-stores.query';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductsService } from 'src/app/state/products/products.service';
-import { ProductsQuery } from 'src/app/state/products/products.query';
-import { OnlineStoresService } from 'src/app/state/online-stores/online-stores.service';
 
 
 @Component({
@@ -19,11 +17,9 @@ export class AddItemDialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<AddItemDialogComponent>,
     private onlineStoresQuery: OnlineStoresQuery,
-    private onlineStoreService:OnlineStoresService,
     @Inject(MAT_DIALOG_DATA) public data: Product,
     private productsService:ProductsService,
-    private fb:FormBuilder,
-    private productQuery: ProductsQuery) {}
+    private fb:FormBuilder,) {}
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -31,9 +27,7 @@ export class AddItemDialogComponent implements OnInit {
 
   onSave(){
     if (!this.form.valid) return;
-    //get the largest id number of a saved product
-    const lastId = this.productQuery.getAll().map(pr => pr.id).reduce((acc ,cur)=>(cur > acc? cur : acc), 0)
-    this.productsService.add({...this.data, id:lastId + 1});
+    this.productsService.add({...this.data});
     this.dialogRef.close();
   }
 

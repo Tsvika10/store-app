@@ -14,6 +14,7 @@ export class ReceivedItemsPageComponent implements OnInit {
   }
 
   getItems(){
+    //get only received items
     return this.productsQuery.selectAll({filterBy:({received}) => received});
   }
 

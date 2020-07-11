@@ -4,9 +4,10 @@ import { ID } from '@datorama/akita';
 import { tap } from 'rxjs/operators';
 import { Product } from './product.model';
 import { ProductsStore } from './products.store';
-import { of, from } from 'rxjs';
+import { of } from 'rxjs';
 import { OnlineStoresService } from '../online-stores/online-stores.service';
 import { OnlineStoresQuery } from '../online-stores/online-stores.query';
+import { ProductsQuery } from './products.query';
 
 @Injectable({ providedIn: 'root' })
 export class ProductsService {
@@ -15,7 +16,8 @@ export class ProductsService {
     private productsStore: ProductsStore, 
     private http: HttpClient,
     private onlineStoreService:OnlineStoresService,
-    private onlineStoresQuery:OnlineStoresQuery) {
+    private onlineStoresQuery:OnlineStoresQuery,
+    private productQuery: ProductsQuery) {
   }
 
 
@@ -27,7 +29,9 @@ export class ProductsService {
   }
 
   add(product: Product) {
-    this.productsStore.add(product);
+    //get the largest id number of a saved product
+    const lastId = this.productQuery.getAll().map(pr => pr.id).reduce((acc ,cur)=>(cur > acc? cur : acc), 0)
+    this.productsStore.add({...product, id:lastId + 1});
         //get the last products count in the store and update
         const lastStoreCount = this.onlineStoresQuery.getEntity(product.storeId).productCount;
         this.onlineStoreService.update(product.storeId,{productCount: lastStoreCount + 1})
