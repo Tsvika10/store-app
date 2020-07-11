@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OnlineStoresQuery } from 'src/app/state/online-stores/online-stores.query';
 
 @Component({
   selector: 'app-stores-list',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StoresListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private storesQuery:OnlineStoresQuery) { }
 
   ngOnInit() {
+  }
+
+  getStores(){
+    return this.storesQuery.selectAll();
   }
 
 }

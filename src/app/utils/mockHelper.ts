@@ -41,7 +41,7 @@ export function setMock(){
             {
                 id: 1,
                 title: 'Ebay',
-                productCount: 1
+                productCount: 2
             }
         ] as OnlineStore[]
     ));
