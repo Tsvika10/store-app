@@ -1,0 +1,33 @@
+<div class="container flex-container">
+    <div class="card-container flex-item" *ngFor="let item of items">
+        <mat-card>
+            <div class="card__inner">
+                <mat-card-title>
+                    {{item.title}}
+                </mat-card-title>
+                <mat-card-subtitle>
+                    {{getStoreName(item.storeId) | async}}
+                </mat-card-subtitle>
+                <mat-list>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        <b>Price:&nbsp;</b>
+                        <span>
+                            {{getItemPrice(item) | async}}&nbsp;&#8362;
+                        </span>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>
+                        <b>Delivery Date:&nbsp;</b>
+                        <span>
+                            {{item.deliveryDate | date:'fullDate'}}
+                        </span>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </div>
+            <button mat-raised-button color="primary" (click)="confirmReceived(item.id)">Item Received</button>
+        </mat-card>
+    </div>
+    <app-add-button *ngIf="notReceived" (clickEvent)="onAdd()"></app-add-button>
+</div>

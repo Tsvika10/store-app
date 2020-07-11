@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Add new product item</h1>
+<form [formGroup]="form" (submit)="onSave()">
+    <div mat-dialog-content>
+        <mat-form-field>
+            <mat-label>Product name</mat-label>
+            <input matInput formControlName="title">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Price (USD)</mat-label>
+            <input type="number" step="0.01" min="0.01" matInput formControlName="price">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Estimated delivery date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="deliveryDate" [min]="minDate()">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <input type="hidden" formControlName="received">
+        <mat-form-field>
+            <mat-label>Store</mat-label>
+            <mat-select formControlName="storeId">
+                <mat-option *ngFor="let store of getStoresList() | async as list" [value]="store.id">{{store.title}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button type="submit" cdkFocusInitial>Ok</button>
+        <button mat-button (click)="onNoClick()">Cancel</button>
+    </div>
+</form>
+
+

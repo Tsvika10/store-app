@@ -1,0 +1,4 @@
+<mat-tab-group>
+    <mat-tab label="Items"> <app-items-list [notReceived]="true" [items]="getItems() | async"></app-items-list> </mat-tab>
+    <mat-tab label="Stores"> <app-stores-list></app-stores-list> </mat-tab>
+</mat-tab-group>
