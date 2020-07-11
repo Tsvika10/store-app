@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { OnlineStoresQuery } from 'src/app/state/online-stores/online-stores.query';
 import { map } from 'rxjs/operators';
 import { AddItemDialogComponent } from '../add-item-dialog/add-item-dialog.component';
@@ -14,6 +14,7 @@ import { Product } from 'src/app/state/products/product.model';
 export class ItemsListComponent implements OnInit {
   @Input() items:Array<any>;
   @Input() notReceived:Array<any>;
+  @Output() onConfirmReceived:EventEmitter<number> = new EventEmitter<number>();
 
   constructor(private onlineStoresQuery: OnlineStoresQuery, public dialog: MatDialog, private uiQuery:UiQuery) { }
 
@@ -37,6 +38,10 @@ export class ItemsListComponent implements OnInit {
 
   getStoreName(id: number){
     return this.onlineStoresQuery.selectEntity(id).pipe(map(s => s.title))
+  }
+
+  confirmReceived(id){
+    this.onConfirmReceived.emit(id);
   }
 
 }

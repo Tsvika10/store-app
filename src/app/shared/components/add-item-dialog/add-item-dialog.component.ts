@@ -34,9 +34,6 @@ export class AddItemDialogComponent implements OnInit {
     //get the largest id number of a saved product
     const lastId = this.productQuery.getAll().map(pr => pr.id).reduce((acc ,cur)=>(cur > acc? cur : acc), 0)
     this.productsService.add({...this.data, id:lastId + 1});
-    //get the last products count in the store and update
-    const lastStoreCount = this.onlineStoresQuery.getEntity(this.data.storeId).productCount;
-    this.onlineStoreService.update(this.data.storeId,{productCount: lastStoreCount + 1})
     this.dialogRef.close();
   }
 

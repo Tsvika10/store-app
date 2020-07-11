@@ -1,10 +1,11 @@
 
 .add-button{
     
-    &__container{
+    &-container{
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 10rem;
+        max-width: calc(100vw - 2rem);
     }
 }

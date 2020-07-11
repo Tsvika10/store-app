@@ -22,7 +22,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
-
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [AddButtonComponent, ItemsListComponent, StoresListComponent, AddItemDialogComponent],
@@ -45,7 +45,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatDividerModule,
     MatListModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTableModule
   ],
   exports:[
     ItemsListComponent,
@@ -67,7 +68,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatDividerModule,
     MatListModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTableModule
   ]
 })
 export class SharedModule { }

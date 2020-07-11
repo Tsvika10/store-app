@@ -7,10 +7,12 @@ import { OnlineStoresQuery } from 'src/app/state/online-stores/online-stores.que
   styleUrls: ['./stores-list.component.css']
 })
 export class StoresListComponent implements OnInit {
+  public displayedColumns: string[] = ['id', 'title', 'productCount'];
 
   constructor(private storesQuery:OnlineStoresQuery) { }
 
   ngOnInit() {
+
   }
 
   getStores(){
